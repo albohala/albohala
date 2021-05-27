@@ -7,17 +7,16 @@ void Introduction(int Difficulty)
     cout << endl;
     cout << "================================================================";
     cout << "\nYou are a secret agent breaking into a level " << Difficulty;
-    cout << endl;
-    cout << "secure server room...\nEnter the correct code to continue..." << endl;
+    cout << " secure server room...\nEnter the correct code to continue..." << endl;
 }
 
 bool PlayGame(int Difficulty)
 {
     Introduction(Difficulty);
 
-    const int CodeA = 4;
-    const int CodeB = 3;
-    const int CodeC = 2;
+    const int CodeA = rand();
+    const int CodeB = rand();
+    const int CodeC = rand();
     
     const int CodeSum = CodeA + CodeB + CodeC;
     const int CodeProduct = CodeA * CodeB * CodeC;
@@ -40,12 +39,12 @@ bool PlayGame(int Difficulty)
 
     if (GuessSum == CodeSum && GuessProduct == CodeProduct)
     {
-        cout << "\nYou win!" << endl;
+        cout << "\nYou win! Continue to the next level" << endl;
         return true;
     }
     else
     {
-        cout << "\nWRONG! \n";
+        cout << "\nWRONG! Try again! \n";
         return false;
     }
 
@@ -54,7 +53,9 @@ bool PlayGame(int Difficulty)
 int main()
 {
     int LevelDifficulty = 1;
-    while(true)
+    const int MaxLevel = 5;
+
+    while(LevelDifficulty <= MaxLevel) //Loop the game until all levels are completed
     {
         bool bLevelComplete = PlayGame(LevelDifficulty);
         cin.clear(); // Ckears aby errors
@@ -66,6 +67,9 @@ int main()
             ++LevelDifficulty;
         }
         
-    }    
+    }
+
+    cout << "You have cracked the enemy's serevers. Well done agen! \n";
+
     return 0;
 }
