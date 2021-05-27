@@ -1,19 +1,19 @@
 #include <iostream>
 using namespace std;
 
-void Introduction()
+void Introduction(int Difficulty)
 {
     // Print welcome messages to the terminal
     cout << endl;
     cout << "================================================================";
-    cout << "\nYou are a secret agent breaking into a secure server room...";
+    cout << "\nYou are a secret agent breaking into a level " << Difficulty;
     cout << endl;
-    cout << "Enter the correct code to continue..." << endl;
+    cout << "secure server room...\nEnter the correct code to continue..." << endl;
 }
 
-bool PlayGame()
+bool PlayGame(int Difficulty)
 {
-    Introduction();
+    Introduction(Difficulty);
 
     const int CodeA = 4;
     const int CodeB = 3;
@@ -53,11 +53,19 @@ bool PlayGame()
 
 int main()
 {
+    int LevelDifficulty = 1;
     while(true)
     {
-        bool bLevelComplete = PlayGame();
+        bool bLevelComplete = PlayGame(LevelDifficulty);
         cin.clear(); // Ckears aby errors
         cin.ignore(); // Dicards ther buffer
+
+        if (bLevelComplete)
+        {
+            // Increase the level difficulty
+            ++LevelDifficulty;
+        }
+        
     }    
     return 0;
 }
