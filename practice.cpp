@@ -14,9 +14,9 @@ bool PlayGame(int Difficulty)
 {
     Introduction(Difficulty);
 
-    const int CodeA = (rand() % 4;
-    const int CodeB = (rand() % 4;
-    const int CodeC = (rand() % 4;
+    const int CodeA = rand() % (Difficulty + 1);
+    const int CodeB = rand() % (Difficulty + 1);
+    const int CodeC = rand() % (Difficulty + 1);
     
     const int CodeSum = CodeA + CodeB + CodeC;
     const int CodeProduct = CodeA * CodeB * CodeC;
@@ -66,7 +66,6 @@ int main()
             // Increase the level difficulty
             ++LevelDifficulty;
         }
-        
     }
 
     cout << "You have cracked the enemy's serevers. Well done agen! \n";
