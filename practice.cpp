@@ -5,12 +5,13 @@ void Introduction()
 {
     // Print welcome messages to the terminal
     cout << endl;
-    cout << "You are a secret agent breaking into a secure server room...";
+    cout << "================================================================";
+    cout << "\nYou are a secret agent breaking into a secure server room...";
     cout << endl;
     cout << "Enter the correct code to continue..." << endl;
 }
 
-void PlayGame()
+bool PlayGame()
 {
     Introduction();
 
@@ -39,11 +40,13 @@ void PlayGame()
 
     if (GuessSum == CodeSum && GuessProduct == CodeProduct)
     {
-        cout << "You win!" << endl;
+        cout << "\nYou win!" << endl;
+        return true;
     }
     else
     {
-        cout << "WRONG! \n";
+        cout << "\nWRONG! \n";
+        return false;
     }
 
 }
@@ -52,8 +55,7 @@ int main()
 {
     while(true)
     {
-        bool bLevelComplete();
-        PlayGame();
+        bool bLevelComplete = PlayGame();
         cin.clear(); // Ckears aby errors
         cin.ignore(); // Dicards ther buffer
     }    
