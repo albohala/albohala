@@ -1,4 +1,5 @@
 #include <iostream>
+#include <ctime>
 using namespace std;
 
 void Introduction(int Difficulty)
@@ -52,6 +53,8 @@ bool PlayGame(int Difficulty)
 
 int main()
 {
+    srand(time(NULL)); // Create new random sequence based on time of day
+
     int LevelDifficulty = 1;
     const int MaxLevel = 5;
 
